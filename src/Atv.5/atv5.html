@@ -32,34 +32,5 @@
     </div>
 
     <script src="atv5.js"></script>
-    <script>
-        function processarCalculo() {
-            const inicial = parseFloat(document.getElementById('valorInicial').value);
-            const atual = parseFloat(document.getElementById('valorAtual').value);
-            const mesesInput = document.getElementById('meses').value;
-            const meses = mesesInput !== "" ? parseInt(mesesInput) : undefined;
-            
-            const areaResultado = document.getElementById('resultado');
-            const areaAnual = document.getElementById('areaAnual');
-
-            try {
-                const dados = calcularRentabilidade(inicial, atual, meses);
-                
-                document.getElementById('resLucro').innerText = `R$ ${dados.lucro.toFixed(2)}`;
-                document.getElementById('resRentabilidade').innerText = dados.rentabilidade.toFixed(2);
-                
-                if (dados.rentabilidadeAnual !== null) {
-                    document.getElementById('resAnual').innerText = dados.rentabilidadeAnual.toFixed(2);
-                    areaAnual.style.display = 'block';
-                } else {
-                    areaAnual.style.display = 'none';
-                }
-                
-                areaResultado.style.display = 'block';
-            } catch (error) {
-                alert(error.message);
-            }
-        }
-    </script>
 </body>
 </html>
