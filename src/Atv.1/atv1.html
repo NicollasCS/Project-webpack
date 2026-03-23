@@ -29,26 +29,5 @@
     </div>
 
     <script src="atv1.js"></script>
-    <script>
-        function processarCalculo() {
-            const preco = parseFloat(document.getElementById('preco').value);
-            const desc = parseFloat(document.getElementById('porcentagem').value);
-            const areaResultado = document.getElementById('resultado');
-
-            try {
-                const dados = calcularDesconto(preco, desc);
-                
-                document.getElementById('resOriginal').innerText = `R$ ${dados.precoOriginal.toFixed(2)}`;
-                document.getElementById('resPorcentagem').innerText = dados.percentualDesconto;
-                document.getElementById('resValorDesconto').innerText = `R$ ${dados.valorDesconto.toFixed(2)}`;
-                document.getElementById('resFinal').innerText = `R$ ${dados.precoFinal.toFixed(2)}`;
-                document.getElementById('resEconomia').innerText = `R$ ${dados.economia.toFixed(2)}`;
-                
-                areaResultado.style.display = 'block';
-            } catch (error) {
-                alert(error.message);
-            }
-        }
-    </script>
 </body>
 </html>
