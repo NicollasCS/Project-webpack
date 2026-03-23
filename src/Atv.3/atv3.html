@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3 - Custo de Viagem</title>
+    <link rel="stylesheet" href="atv3.css">
+</head>
+<body>
+    <div class="painel">
+        <h3>Custo da Viagem</h3>
+        
+        <label>Distância (km):</label>
+        <input type="number" id="distancia" placeholder="Ex: 300">
+        
+        <label>Consumo Médio (km/L):</label>
+        <input type="number" id="consumo" placeholder="Ex: 12">
+
+        <label>Preço Combustível (R$):</label>
+        <input type="number" id="preco" placeholder="Ex: 5.00">
+        
+        <button onclick="processarCalculo()">Calcular Custo</button>
+
+        <div id="resultado" style="display: none; margin-top: 20px;">
+            <hr>
+            <p>Combustível necessário: <span id="resLitros"></span> L</p>
+            <p>Custo só Ida: <strong><span id="resCusto"></span></strong></p>
+            <p style="color: #4CAF50; font-weight: bold;">Custo Ida e Volta: <span id="resIdaVolta"></span></p>
+        </div>
+    </div>
+
+    <script src="atv3.js"></script>
+    <script>
+        function processarCalculo() {
+            const dist = parseFloat(document.getElementById('distancia').value);
+            const cons = parseFloat(document.getElementById('consumo').value);
+            const preco = parseFloat(document.getElementById('preco').value);
+            const areaResultado = document.getElementById('resultado');
+
+            try {
+                const dados = calcularCustoViagem(dist, cons, preco);
+                
+                document.getElementById('resLitros').innerText = dados.litrosNecessarios.toFixed(2);
+                document.getElementById('resCusto').innerText = `R$ ${dados.custoTotal.toFixed(2)}`;
+                document.getElementById('resIdaVolta').innerText = `R$ ${dados.custoIdaVolta.toFixed(2)}`;
+                
+                areaResultado.style.display = 'block';
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+    </script>
+</body>
+</html>
