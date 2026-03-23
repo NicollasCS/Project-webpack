@@ -1,0 +1,44 @@
+body { 
+    font-family: sans-serif;
+    padding: 20px;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+}
+
+.painel {
+    background-color: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input { 
+    width: 94%;
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #000;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+h3 {
+    text-align: center;
+    margin-top: 0;
+}
