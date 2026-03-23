@@ -30,25 +30,5 @@
     </div>
 
     <script src="atv3.js"></script>
-    <script>
-        function processarCalculo() {
-            const dist = parseFloat(document.getElementById('distancia').value);
-            const cons = parseFloat(document.getElementById('consumo').value);
-            const preco = parseFloat(document.getElementById('preco').value);
-            const areaResultado = document.getElementById('resultado');
-
-            try {
-                const dados = calcularCustoViagem(dist, cons, preco);
-                
-                document.getElementById('resLitros').innerText = dados.litrosNecessarios.toFixed(2);
-                document.getElementById('resCusto').innerText = `R$ ${dados.custoTotal.toFixed(2)}`;
-                document.getElementById('resIdaVolta').innerText = `R$ ${dados.custoIdaVolta.toFixed(2)}`;
-                
-                areaResultado.style.display = 'block';
-            } catch (error) {
-                alert(error.message);
-            }
-        }
-    </script>
 </body>
 </html>
