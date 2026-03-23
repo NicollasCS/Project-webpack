@@ -8,7 +8,6 @@ function calcularLucro(custo, venda) {
 
     const lucro = venda - custo;
     
-    // Evita divisão por zero se o custo for 0
     let margemLucro = 0;
     if (custo > 0) {
         margemLucro = (lucro / custo) * 100;
