@@ -11,7 +11,6 @@ function calcularRentabilidade(valorInicial, valorAtual, meses = null) {
     
     let rentabilidadeAnual = null;
     
-    // Cálculo da rentabilidade anualizada (Regra de três simples sobre os meses)
     if (meses !== null && meses > 0) {
         rentabilidadeAnual = (rentabilidade / meses) * 12;
     }
