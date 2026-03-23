@@ -28,25 +28,5 @@
     </div>
 
     <script src="atv2.js"></script>
-    <script>
-        function processarCalculo() {
-            const salario = parseFloat(document.getElementById('salarioBase').value);
-            const bonus = parseFloat(document.getElementById('porcentagemBonus').value);
-            const areaResultado = document.getElementById('resultado');
-
-            try {
-                const dados = calcularSalarioComBonus(salario, bonus);
-                
-                document.getElementById('resBase').innerText = `R$ ${dados.salarioBase.toFixed(2)}`;
-                document.getElementById('resPorcentagem').innerText = dados.percentualBonus;
-                document.getElementById('resValorBonus').innerText = `R$ ${dados.valorBonus.toFixed(2)}`;
-                document.getElementById('resFinal').innerText = `R$ ${dados.salarioFinal.toFixed(2)}`;
-                
-                areaResultado.style.display = 'block';
-            } catch (error) {
-                alert(error.message);
-            }
-        }
-    </script>
 </body>
 </html>
