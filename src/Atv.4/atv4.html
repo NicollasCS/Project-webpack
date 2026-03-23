@@ -28,28 +28,5 @@
     </div>
 
     <script src="atv4.js"></script>
-    <script>
-        function processarCalculo() {
-            const custo = parseFloat(document.getElementById('custo').value);
-            const venda = parseFloat(document.getElementById('venda').value);
-            const areaResultado = document.getElementById('resultado');
-
-            try {
-                const dados = calcularLucro(custo, venda);
-                
-                document.getElementById('resCusto').innerText = `R$ ${dados.custo.toFixed(2)}`;
-                document.getElementById('resVenda').innerText = `R$ ${dados.venda.toFixed(2)}`;
-                document.getElementById('resLucro').innerText = `R$ ${dados.lucro.toFixed(2)}`;
-                document.getElementById('resMargem').innerText = dados.margemLucro.toFixed(2);
-                
-                // Mudar cor se for prejuízo
-                document.getElementById('resLucro').style.color = dados.lucro < 0 ? "red" : "#4CAF50";
-                
-                areaResultado.style.display = 'block';
-            } catch (error) {
-                alert(error.message);
-            }
-        }
-    </script>
 </body>
 </html>
