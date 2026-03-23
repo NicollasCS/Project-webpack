@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2 - Salário com Bônus</title>
+    <link rel="stylesheet" href="atv2.css">
+</head>
+<body>
+    <div class="painel">
+        <h3>Cálculo de Salário</h3>
+        
+        <label>Salário Base (R$):</label>
+        <input type="number" id="salarioBase" placeholder="Ex: 2000.00">
+        
+        <label>Bônus (%):</label>
+        <input type="number" id="porcentagemBonus" placeholder="Ex: 10">
+        
+        <button onclick="processarCalculo()">Calcular Salário</button>
+
+        <div id="resultado" style="display: none; margin-top: 20px;">
+            <hr>
+            <p>Salário Base: <span id="resBase"></span></p>
+            <p>Bônus Aplicado: <span id="resPorcentagem"></span>%</p>
+            <p>Valor do Bônus: <span id="resValorBonus"></span></p>
+            <p><strong>Salário Final: <span id="resFinal"></span></strong></p>
+        </div>
+    </div>
+
+    <script src="atv2.js"></script>
+    <script>
+        function processarCalculo() {
+            const salario = parseFloat(document.getElementById('salarioBase').value);
+            const bonus = parseFloat(document.getElementById('porcentagemBonus').value);
+            const areaResultado = document.getElementById('resultado');
+
+            try {
+                const dados = calcularSalarioComBonus(salario, bonus);
+                
+                document.getElementById('resBase').innerText = `R$ ${dados.salarioBase.toFixed(2)}`;
+                document.getElementById('resPorcentagem').innerText = dados.percentualBonus;
+                document.getElementById('resValorBonus').innerText = `R$ ${dados.valorBonus.toFixed(2)}`;
+                document.getElementById('resFinal').innerText = `R$ ${dados.salarioFinal.toFixed(2)}`;
+                
+                areaResultado.style.display = 'block';
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+    </script>
+</body>
+</html>
