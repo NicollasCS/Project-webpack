@@ -32,8 +32,7 @@ h3 {
 label {
     display: block;
     margin-bottom: 5px;
-    color: #cccccc;
-    font-weight: 500;
+    color: #ffffff;
 }
 
 input {
@@ -46,6 +45,7 @@ input {
     box-sizing: border-box;
     background: #222222;
     color: #ffffff;
+    margin-bottom: 10px;
 }
 
 input:focus {
