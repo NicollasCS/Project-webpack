@@ -24,6 +24,30 @@ function calcularRentabilidade(valorInicial, valorAtual, meses = null) {
     };
 }
 
+function processarCalculo() {
+    const valorInicial = parseFloat(document.getElementById('valorInicial').value);
+    const valorAtual = parseFloat(document.getElementById('valorAtual').value);
+    const meses = document.getElementById('meses').value ? parseFloat(document.getElementById('meses').value) : null;
+
+    try {
+        const resultado = calcularRentabilidade(valorInicial, valorAtual, meses);
+        
+        document.getElementById('resLucro').textContent = 'R$ ' + resultado.lucro.toFixed(2);
+        document.getElementById('resRentabilidade').textContent = resultado.rentabilidade.toFixed(2);
+        
+        if (resultado.rentabilidadeAnual !== null) {
+            document.getElementById('resAnual').textContent = resultado.rentabilidadeAnual.toFixed(2);
+            document.getElementById('areaAnual').style.display = 'block';
+        } else {
+            document.getElementById('areaAnual').style.display = 'none';
+        }
+        
+        document.getElementById('resultado').style.display = 'block';
+    } catch (error) {
+        alert(error.message);
+    }
+}
+
 if (typeof module !== 'undefined') {
     module.exports = calcularRentabilidade;
 }
